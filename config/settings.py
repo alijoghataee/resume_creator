@@ -38,9 +38,13 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    # crispy
+    'crispy_forms',
     # apps
     'accounts',
     'pages',
+    'resume',
+
 ]
 
 MIDDLEWARE = [
@@ -124,6 +128,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
 STATIC_URL = 'static/'
+STATICFILES_DIRS = [str(BASE_DIR.joinpath('static'))]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
@@ -133,5 +138,9 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # authentication settings
 
 AUTH_USER_MODEL = 'accounts.CustomUser'
-# LOGOUT_REDIRECT_URL = 'home'
-# LOGIN_REDIRECT_URL = 'home'
+LOGOUT_REDIRECT_URL = 'home'
+LOGIN_REDIRECT_URL = 'home'
+
+# crispy setting
+
+CRISPY_TEMPLATE_PACK = 'bootstrap'

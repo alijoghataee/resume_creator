@@ -1,0 +1,14 @@
+{% extends '_base.html' %}
+{% load crispy_forms_tags %}
+{% block title %}social media{% endblock title %}
+
+{% block content %}
+
+<form method="post">
+{% csrf_token %}
+{{ form|crispy }}
+<button class="btn btn-dark" type="submit">submit</button>
+</form>
+<button class="btn btn-dark"><a href="{% url 'home' %}">end</a> </button>
+
+{% endblock content %}

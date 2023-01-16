@@ -1,0 +1,139 @@
+{% extends '_base.html' %}
+
+
+{% block title %}{{ user.username }} resume{% endblock title %}
+
+{% block content %}
+
+
+
+    <div id="doc2" class="yui-t7">
+        <div id="inner">
+
+            <div id="hd">
+                <div class="yui-gc">
+                    <div class="yui-u first">
+                        <h1>{{ resume.name }}</h1>
+                        <h3>{{ resume.profession }}</h3>
+                    </div>
+
+                    <div class="yui-u">
+                        <div class="contact-info">
+                            <h3><a id="pdf" href="#">Download PDF</a></h3>
+                            <h4><a href="mailto:{{ resume.email }}">{{ resume.email }}</a></h4>
+                            <h4>{{ resume.number }}</h4>
+                        </div><!--// .contact-info -->
+                    </div>
+                </div><!--// .yui-gc -->
+            </div><!--// hd -->
+
+            <div id="bd">
+                <div id="yui-main">
+                    <div class="yui-b">
+
+                        <div class="yui-gf">
+                            <div class="yui-u first">
+                                <h2>Profile</h2>
+                            </div>
+                            <div class="yui-u">
+                                <h4 class="enlarge">
+                                    {{ resume.profile }}
+                                </h4>
+                            </div>
+                        </div><!--// .yui-gf -->
+
+                        <div class="yui-gf">
+                            <div class="yui-u first">
+                                <h2>Skills</h2>
+                            </div>
+                            <div class="yui-u">
+
+                                <div class="talent">
+                                    <h4>{{ resume.skills }}</h4>
+                                </div>
+
+                            </div>
+                        </div><!--// .yui-gf -->
+{% if experiences %}
+                        <div class="yui-gf">
+                            <div class="yui-u first">
+                                <h2>Experience</h2>
+                            </div>
+                            <div class="yui-u">
+                                {% for experience in experiences %}
+                                    <ul class="talent">
+                                        <li>{{ experience.company_name }}</li>
+                                        <li>{{ experience.position }}</li>
+                                        <li class="last">{{ experience.start_of }} - {{ experience.end }}</li>
+                                    </ul>
+                                {% endfor %}
+                            </div>
+                        </div><!--// .yui-gf-->
+{% endif %}
+                        {% if projects %}
+                        <div class="yui-gf">
+                            <div class="yui-u first">
+                                <h2>Project</h2>
+                            </div>
+                            <div class="yui-u">
+                                {% for project in projects %}
+                                    <ul class="talent">
+                                        <li>{{ project.project_name }}</li>
+                                        <li>{{ project.summary_about_project }}</li>
+                                        <li class="last">{{ project.link }}</li>
+                                    </ul>
+                                {% endfor %}
+                            </div>
+                        </div><!--// .yui-gf-->
+{% endif %}
+                        {% if resume.hobby %}
+                        <div class="yui-gf">
+
+                            <div class="yui-u first">
+                                <h2>Hobby</h2>
+                            </div><!--// .yui-u -->
+
+                            <div class="yui-u">
+
+                                <div class="job">
+
+                                    <p>{{ resume.hobby }}</p>
+                                </div>
+
+                            </div><!--// .yui-u -->
+                        </div><!--// .yui-gf -->
+{% endif %}
+{% if social_medias %}
+                        <div class="yui-gf">
+                            <div class="yui-u first">
+                                <h2>Social Media</h2>
+                            </div>
+                            <div class="yui-u">
+                                {% for social_media in social_medias %}
+                                    <ul class="talent">
+                                        <li>{{ social_media.name }}</li>
+                                        <li class="last">{{ social_media.link }}</li>
+                                    </ul>
+                                {% endfor %}
+                            </div>
+                        </div><!--// .yui-gf-->
+{% endif %}
+
+                    </div><!--// .yui-b -->
+                </div><!--// yui-main -->
+            </div><!--// bd -->
+
+            <div id="ft">
+                <p>Jonathan Doe &mdash; <a href="mailto:name@yourdomain.com">name@yourdomain.com</a> &mdash; (313) -
+                    867-5309</p>
+            </div><!--// footer -->
+
+        </div><!-- // inner -->
+
+
+    </div><!--// doc -->
+
+
+
+
+{% endblock content %}

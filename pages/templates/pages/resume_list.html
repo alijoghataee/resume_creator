@@ -1,0 +1,17 @@
+{% extends '_base.html' %}
+
+{% block title %}HOME{% endblock title %}
+
+{% block content %}
+
+{% for resume in resume %}
+    <h3>{{ resume.name }}</h3>
+
+    <a href="{{ resume.get_absolute_url }}">see</a>
+
+{% endfor %}
+
+
+
+
+{% endblock content %}
